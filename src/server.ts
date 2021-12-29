@@ -1,10 +1,10 @@
-import Koa from "koa";
+import Koa from 'koa';
 
 const server: Koa = new Koa();
-const port: number = 3000;
+const port = 3000;
 
 server.use((ctx: Koa.DefaultContext) => {
-  ctx.body = "hi";
+  ctx.body = 'hi';
 });
 
 server.listen(port, () => {
