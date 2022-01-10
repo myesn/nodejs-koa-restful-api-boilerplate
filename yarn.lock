@@ -173,6 +173,13 @@
   dependencies:
     "@types/koa" "*"
 
+"@types/koa-response-time@^2.1.2":
+  version "2.1.2"
+  resolved "https://registry.npmmirror.com/@types/koa-response-time/download/@types/koa-response-time-2.1.2.tgz#b33f79c0a07b36516860ee49dda35e77ab7afd26"
+  integrity sha512-78xttHKjeHlNEQslMpl3mzwLhkTJUu/ocF+Sl8AyV0kstUs15H9O7Jq/i/jc+HR5uNVLqbkaH57lYoyIzUSOCg==
+  dependencies:
+    "@types/koa" "*"
+
 "@types/koa-router@^7.4.4":
   version "7.4.4"
   resolved "https://registry.npmmirror.com/@types/koa-router/download/@types/koa-router-7.4.4.tgz#db72bde3616365d74f00178d5f243c4fce7da572"
@@ -1413,6 +1420,11 @@ koa-logger@^3.2.1:
     chalk "^2.4.2"
     humanize-number "0.0.2"
     passthrough-counter "^1.0.0"
+
+koa-response-time@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.npm.taobao.org/koa-response-time/download/koa-response-time-2.1.0.tgz#bc8473207255fcbddaf10004bd7a8e59f2e948c9"
+  integrity sha1-vIRzIHJV/L3a8QAEvXqOWfLpSMk=
 
 koa-router@^10.1.1:
   version "10.1.1"
