@@ -1,5 +1,7 @@
+import { Environment } from '../constant/environment';
+
 export interface Config {
-  env: string;
+  env: Environment;
   port?: number;
 }
 

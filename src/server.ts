@@ -1,12 +1,18 @@
 import bodyParser from 'koa-bodyparser';
+import json from 'koa-json'
 
-import { server, container } from './config/inversify.config';
+import { container, server } from './config/inversify.config';
 import { Config } from './config/config';
 import SERVICE_IDENTIFIER from './constant/identifiers';
+import { Environment } from './constant/environment';
 
-const port = container.get<Config>(SERVICE_IDENTIFIER.CONFIG).port;
+const { port, env } = container.get<Config>(SERVICE_IDENTIFIER.CONFIG);
 server
   .setConfig((app) => {
+    if(env === Environment.Development){
+      app.use(json());
+    }
+
     app.use(bodyParser());
   })
   .build()

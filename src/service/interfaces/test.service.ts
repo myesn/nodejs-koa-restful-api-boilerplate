@@ -1,9 +1,11 @@
-export interface testPostBody {
+import { TestGetResult } from '../../models/test/Test';
+
+export interface TestPostBody {
   name: string;
 }
 
-export interface testService {
-  get(): string;
+export interface TestService {
+  get(): TestGetResult;
 
-  post(body: testPostBody): void;
+  post(body: TestPostBody): void;
 }

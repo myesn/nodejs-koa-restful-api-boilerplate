@@ -8,23 +8,24 @@ import {
 } from 'inversify-koa-utils';
 import * as Router from 'koa-router';
 import SERVICE_IDENTIFIER from '../constant/identifiers';
-import { testPostBody, testService } from '../service/interfaces';
+import { TestPostBody, TestService } from '../service/interfaces';
 import { statusCode } from '../constant/http.status';
+import { TestGetResult } from '../models/test/Test';
 
 @controller('/test')
 @injectable()
-export class testController implements interfaces.Controller {
+export class TestController implements interfaces.Controller {
   constructor(
-    @inject(SERVICE_IDENTIFIER.TEST) private testService: testService
+    @inject(SERVICE_IDENTIFIER.TEST) private testService: TestService
   ) {}
 
   @httpGet('/get')
-  get(): string {
+  get(): TestGetResult {
     return this.testService.get();
   }
 
   @httpPost('/post')
-  post(@requestBody() body: testPostBody, ctx: Router.RouterContext): void {
+  post(@requestBody() body: TestPostBody, ctx: Router.RouterContext): void {
     this.testService.post(body);
     ctx.status = statusCode.NoContent;
   }

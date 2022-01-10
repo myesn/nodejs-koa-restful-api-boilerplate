@@ -1,7 +1,9 @@
+import { Environment } from './constant/environment';
+
 declare global {
   namespace NodeJS {
     interface ProcessEnv {
-      NODE_ENV: string;
+      NODE_ENV: Environment;
       PORT?: number;
     }
   }
