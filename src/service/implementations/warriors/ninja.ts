@@ -1,6 +1,6 @@
 import { injectable, inject } from 'inversify';
 
-import SERVICE_IDENTIFIER from '../../../constants/identifiers';
+import SERVICE_IDENTIFIER from '../../../constant/identifiers';
 import { Warrior, Weapon } from '../../interfaces';
 
 @injectable()

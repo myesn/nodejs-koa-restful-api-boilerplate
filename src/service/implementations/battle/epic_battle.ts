@@ -1,8 +1,8 @@
 import { inject, injectable, named } from 'inversify';
 
 import { Battle, Warrior } from '../../interfaces';
-import SERVICE_IDENTIFIER from '../../../constants/identifiers';
-import TAG from '../../../constants/tags';
+import SERVICE_IDENTIFIER from '../../../constant/identifiers';
+import TAG from '../../../constant/tags';
 
 @injectable()
 export class EpicBattle implements Battle {

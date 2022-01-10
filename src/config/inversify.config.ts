@@ -5,18 +5,21 @@
 import 'reflect-metadata';
 
 import { Container } from 'inversify';
+import { interfaces, InversifyKoaServer, TYPE } from 'inversify-koa-utils';
 
-import { Battle, Weapon, Warrior } from '../services/interfaces';
+import { Battle, Weapon, Warrior, testService } from '../service/interfaces';
 import {
   EpicBattle,
   Katana,
   Shuriken,
   Ninja,
   Samurai,
-} from '../services/implementations';
+} from '../service/implementations';
 
-import SERVICE_IDENTIFIER from '../constants/identifiers';
-import TAG from '../constants/tags';
+import SERVICE_IDENTIFIER from '../constant/identifiers';
+import TAG from '../constant/tags';
+import { testServiceImpl } from '../service/implementations/test/test.service.impl';
+import { testController } from '../controller/test.controller';
 
 const container = new Container();
 
@@ -38,4 +41,11 @@ container
   .whenParentNamed(TAG.JAPANESE);
 container.bind<Battle>(SERVICE_IDENTIFIER.BATTLE).to(EpicBattle);
 
-export default container;
+container.bind<testService>(SERVICE_IDENTIFIER.TEST).to(testServiceImpl);
+container.bind<interfaces.Controller>(TYPE.Controller).to(testController);
+
+const server = new InversifyKoaServer(container, undefined, {
+  rootPath: '/api',
+});
+
+export default server;
