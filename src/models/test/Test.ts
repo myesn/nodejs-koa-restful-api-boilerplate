@@ -1,7 +1,11 @@
-export interface TestGetResult {
-  data: string;
+declare namespace TestModel {
+  interface GetResult {
+    data: string;
+  }
+
+  interface PostBody {
+    name: string;
+  }
 }
 
-export interface TestPostBody {
-  name: string;
-}
+export { TestModel };

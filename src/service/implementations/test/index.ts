@@ -1,16 +1,16 @@
 import { injectable } from 'inversify';
-import { TestPostBody, TestService } from 'src/service/interfaces';
-import { TestGetResult } from '../../../models/test/Test';
+import { TestService } from 'src/service/interfaces';
+import { TestModel } from '../../../models/test/Test';
 
 @injectable()
 export class TestServiceImpl implements TestService {
-  get(): TestGetResult {
+  get(): TestModel.GetResult {
     return {
       data: 'myesn',
     };
   }
 
-  post(body: TestPostBody): void {
+  post(body: TestModel.PostBody): void {
     console.log('post: ', body);
   }
 }

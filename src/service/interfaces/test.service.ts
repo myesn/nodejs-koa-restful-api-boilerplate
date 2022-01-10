@@ -1,7 +1,7 @@
-import { TestGetResult, TestPostBody } from '../../models/test/Test';
+import { TestModel } from '../../models/test/Test';
 
 export interface TestService {
-  get(): TestGetResult;
+  get(): TestModel.GetResult;
 
-  post(body: TestPostBody): void;
+  post(body: TestModel.PostBody): void;
 }
