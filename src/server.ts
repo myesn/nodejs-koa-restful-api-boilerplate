@@ -1,5 +1,6 @@
 import bodyParser from 'koa-bodyparser';
-import json from 'koa-json'
+import json from 'koa-json';
+import logger from 'koa-logger';
 
 import { container, server } from './config/inversify.config';
 import { Config } from './config/config';
@@ -10,6 +11,7 @@ const { port, env } = container.get<Config>(SERVICE_IDENTIFIER.CONFIG);
 server
   .setConfig((app) => {
     if(env === Environment.Development){
+      app.use(logger());
       app.use(json());
     }
 
