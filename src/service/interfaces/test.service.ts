@@ -1,8 +1,4 @@
-import { TestGetResult } from '../../models/test/Test';
-
-export interface TestPostBody {
-  name: string;
-}
+import { TestGetResult, TestPostBody } from '../../models/test/Test';
 
 export interface TestService {
   get(): TestGetResult;

@@ -7,6 +7,8 @@ import 'reflect-metadata';
 import { Container } from 'inversify';
 import { interfaces, InversifyKoaServer, TYPE } from 'inversify-koa-utils';
 
+import SERVICE_IDENTIFIER from '../constant/identifiers';
+import TAG from '../constant/tags';
 import { Battle, Weapon, Warrior, TestService } from '../service/interfaces';
 import {
   EpicBattle,
@@ -14,16 +16,12 @@ import {
   Shuriken,
   Ninja,
   Samurai,
+  TestServiceImpl
 } from '../service/implementations';
-
-import SERVICE_IDENTIFIER from '../constant/identifiers';
-import TAG from '../constant/tags';
-import { TestServiceImpl } from '../service/implementations/test/test.service.impl';
 import { TestController } from '../controller/test.controller';
 import { Config, config } from './config';
 
 const container = new Container();
-
 container
   .bind<Warrior>(SERVICE_IDENTIFIER.WARRIOR)
   .to(Ninja)
