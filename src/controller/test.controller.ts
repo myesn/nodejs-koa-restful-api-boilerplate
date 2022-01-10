@@ -10,7 +10,7 @@ import * as Router from 'koa-router';
 import SERVICE_IDENTIFIER from '../constant/identifiers';
 import { TestService } from '../service/interfaces';
 import { statusCode } from '../constant/http.status';
-import { TestModel } from '../models/test/Test';
+import { TestGetResult, TestPostBody } from '../models/test/Test';
 
 @controller('/test')
 @injectable()
@@ -20,15 +20,12 @@ export class TestController implements interfaces.Controller {
   ) {}
 
   @httpGet('/get')
-  get(): TestModel.GetResult {
+  get(): TestGetResult {
     return this.testService.get();
   }
 
   @httpPost('/post')
-  post(
-    @requestBody() body: TestModel.PostBody,
-    ctx: Router.RouterContext
-  ): void {
+  post(@requestBody() body: TestPostBody, ctx: Router.RouterContext): void {
     this.testService.post(body);
     ctx.status = statusCode.NoContent;
   }
