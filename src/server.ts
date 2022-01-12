@@ -1,6 +1,8 @@
 import bodyParser from 'koa-bodyparser';
 import json from 'koa-json';
 import logger from 'koa-logger';
+// 由于 pino 打印的数据实在是过于详细了，不太利于阅读，所以优先使用 koa-logger
+// import logger from 'koa-pino-logger';
 import responseTime from 'koa-response-time';
 
 import { container, server } from './config/inversifyConfig';
