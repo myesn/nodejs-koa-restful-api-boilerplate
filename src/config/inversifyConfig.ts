@@ -16,9 +16,9 @@ import {
   Shuriken,
   Ninja,
   Samurai,
-  TestServiceImpl
+  TestServiceImpl,
 } from '../service/implementations';
-import { TestController } from '../controller/test.controller';
+import { TestController } from '../controller/testController';
 import { Config, config } from './config';
 
 const container = new Container();

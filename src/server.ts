@@ -3,7 +3,7 @@ import json from 'koa-json';
 import logger from 'koa-logger';
 import responseTime from 'koa-response-time';
 
-import { container, server } from './config/inversify.config';
+import { container, server } from './config/inversifyConfig';
 import { Config } from './config/config';
 import SERVICE_IDENTIFIER from './constant/identifiers';
 import { Environment } from './constant/environment';

@@ -9,7 +9,7 @@ import {
 import * as Router from 'koa-router';
 import SERVICE_IDENTIFIER from '../constant/identifiers';
 import { TestService } from '../service/interfaces';
-import { statusCode } from '../constant/http.status';
+import { statusCode } from '../constant/httpStatusCode';
 import { TestGetResult, TestPostBody } from '../models/test/Test';
 
 @controller('/test')
