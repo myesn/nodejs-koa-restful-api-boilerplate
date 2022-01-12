@@ -1,7 +1,7 @@
-export interface TestGetResult {
+export type TestGetResult ={
   data: string;
 }
 
-export interface TestPostBody {
+export type TestPostBody = {
   name: string;
 }

@@ -1,6 +1,6 @@
 import { Environment } from '../constant/environment';
 
-export interface Config {
+export type Config = {
   env: Environment;
   port?: number;
 }
