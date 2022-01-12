@@ -5,13 +5,16 @@ import logger from 'koa-logger';
 // import logger from 'koa-pino-logger';
 import responseTime from 'koa-response-time';
 import cors from '@koa/cors';
+import serve from 'koa-static';
 
 import { container, server } from './config/inversifyConfig';
 import { Config } from './config/config';
 import SERVICE_IDENTIFIER from './constant/identifiers';
 import { Environment } from './constant/environment';
 
-const { port, env } = container.get<Config>(SERVICE_IDENTIFIER.CONFIG);
+const config = container.get<Config>(SERVICE_IDENTIFIER.CONFIG);
+const { port, env, assetDirectory } = config;
+
 server
   .setConfig((app) => {
     if (env === Environment.Development) {
@@ -21,11 +24,12 @@ server
     }
 
     app.use(cors());
+    app.use(serve(assetDirectory));
     app.use(bodyParser());
   })
   .build()
   .listen(port, () => {
     console.log(`Node.js v${process.versions.node}`);
-    console.log(`Node.js environment: ${process.env.NODE_ENV}`);
+    console.log(`Server Configuration: ${JSON.stringify(config, null, 2)}`);
     console.log(`Server running on http://localhost:${port}`);
   });
