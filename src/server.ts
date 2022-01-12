@@ -4,6 +4,7 @@ import logger from 'koa-logger';
 // 由于 pino 打印的数据实在是过于详细了，不太利于阅读，所以优先使用 koa-logger
 // import logger from 'koa-pino-logger';
 import responseTime from 'koa-response-time';
+import cors from '@koa/cors';
 
 import { container, server } from './config/inversifyConfig';
 import { Config } from './config/config';
@@ -19,6 +20,7 @@ server
       app.use(json());
     }
 
+    app.use(cors());
     app.use(bodyParser());
   })
   .build()
