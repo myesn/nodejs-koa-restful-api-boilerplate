@@ -1,12 +1,12 @@
 import { injectable } from 'inversify';
 import { TestService } from 'src/service/interfaces';
-import { TestGetResult, TestPostBody } from '../../../models/test/Test';
+import { TestGetQuery, TestGetResult, TestPostBody } from '../../../models/test/Test';
 
 @injectable()
 export class TestServiceImpl implements TestService {
-  get(): TestGetResult {
+  get(query: TestGetQuery): TestGetResult {
     return {
-      data: 'myesn',
+      data: `hi, ${query.name}`,
     };
   }
 
